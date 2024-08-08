@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  .range-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+}

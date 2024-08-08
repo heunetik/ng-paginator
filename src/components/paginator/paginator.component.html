@@ -1,0 +1,29 @@
+<div class="container">
+  @if (!hidePageSize()) {
+    <div class="page-size">
+      <span>Items per page:</span>
+      <select (change)="onPageSizeChange($event)" [disabled]="disabled()">
+        @for (pageSizeOption of pageSizeOptions(); track pageSizeOption) {
+          <option [value]="pageSizeOption" [selected]="pageSizeOption === this.pageSize()">{{ pageSizeOption }}</option>
+        }
+      </select>
+    </div>
+  }
+
+  <div class="range-actions">
+    <div class="range-label">
+      {{ rangeLabel() }}
+    </div>
+
+    @if (showFirstLastButtons()) {
+      <button (click)="firstPage()" [disabled]="disabled()">first</button>
+    }
+    
+    <button (click)="prevPage()" [disabled]="disabled()">prev</button>
+    <button (click)="nextPage()" [disabled]="disabled()">next</button>
+
+    @if (showFirstLastButtons()) {
+      <button (click)="lastPage()" [disabled]="disabled()">last</button>
+    }
+  </div>
+</div>
